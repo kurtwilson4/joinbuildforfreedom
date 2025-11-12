@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Build for Freedom — Wilson Capital</title>
+<meta name="description" content="Build for Freedom by Kurt Wilson — learn the habits that build assets: land, Airbnbs, and simple cash flow. Join a community of doers and start building your freedom.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23D4AF37'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-size='34' font-family='Arial' fill='%23000'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{ --gold:#D4AF37; --bg:#000; --text:#ecf2ff; --muted:#b9c7e2; --card:#0f1624; }
+*{box-sizing:border-box}
+html,body{margin:0;background:#000;color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;scroll-behavior:smooth}
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
+.section{padding:64px 0}
+.section-title{margin:0 0 8px;font-size:2rem}
+.sub{color:#9fb2c9}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,.15);color:#fff;text-decoration:none;transition:.2s ease all}
+.btn:hover{transform:translateY(-1px)}
+.btn.gold{background:var(--gold);color:#111;border-color:var(--gold);font-weight:800}
+.btn.secondary{background:transparent;color:#fff}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#151515;border:1px solid rgba(212,175,55,.35);color:#f2e2a4;font-size:.8rem}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:72px 0 56px;background:#000}
+.hero::after{
+  content:"";position:absolute;inset:-20% -10%;
+  background:
+    radial-gradient(600px 300px at 50% 20%, rgba(212,175,55,.18), transparent 60%),
+    radial-gradient(800px 400px at 10% -10%, rgba(212,175,55,.10), transparent 70%),
+    radial-gradient(900px 450px at 90% 0%, rgba(212,175,55,.10), transparent 70%),
+    conic-gradient(from 0deg at 50% 50%, rgba(212,175,55,.10), rgba(212,175,55,.02), rgba(212,175,55,.10));
+  filter: blur(20px) saturate(120%);
+  animation: goldflow 14s linear infinite;
+  opacity:.9;pointer-events:none;
+}
+@keyframes goldflow{
+  0%{transform:rotate(0deg) scale(1); opacity:.85}
+  50%{transform:rotate(180deg) scale(1.08); opacity:.95}
+  100%{transform:rotate(360deg) scale(1); opacity:.85}
+}
+.hero .container{position:relative;z-index:3;text-align:center}
+.hero .gold-lines{position:absolute;inset:0;pointer-events:none}
+.hero .gold-lines::before,
+.hero .gold-lines::after{content:"";position:absolute;border:1px solid rgba(212,175,55,.35);border-radius:24px}
+.hero .gold-lines::before{ left:2%; top:8%; width:210px; height:330px; }
+.hero .gold-lines::after{ right:2%; top:12%; width:270px; height:420px; }
+
+.hero h1{font-size:4.2rem;line-height:1.05;margin:6px 0 12px;font-weight:900;}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:900px;margin:0 auto 16px;color:#c9d6ea}
+.hero .sub-gradient{
+  font-size:1.3rem;
+  font-weight:700;
+  background: linear-gradient(90deg, rgba(212,175,55,.85), rgba(255,232,150,.95), rgba(212,175,55,.85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 10px rgba(212,175,55,.12));
+  animation: goldShimmer 6s linear infinite;
+  background-size:200% 100%;
+}
+@keyframes goldShimmer{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+.cta{display:flex;gap:12px;justify-content:center;margin-top:16px}
+.pills{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.pill{display:inline-flex;align-items:center;gap:.6rem;background:transparent;border:2px solid var(--gold);color:var(--gold);padding:.75rem 1.2rem;border-radius:999px;font-size:1rem;font-weight:700;letter-spacing:.02em;transition:box-shadow .3s ease, transform .3s ease, background .3s ease;}
+.pill:hover{box-shadow:0 0 15px rgba(212,175,55,.5);background:rgba(212,175,55,.1);transform:scale(1.05);cursor:pointer;}
+@media (max-width:760px){
+  .hero h1{ font-size:2.6rem; }
+  .hero .sub-gradient{ font-size:1.05rem; }
+}
+
+/* HOW YOU'LL BUILD */
+#how-you-build{background:#000;color:#fff;padding:40px 0;text-align:center}
+#how-you-build .roadmap{display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:nowrap;overflow-x:auto;padding:0 10px}
+#how-you-build h3{margin:0 0 6px;font-size:1rem}
+#how-you-build p{margin:0;color:#ccc}
+#how-you-build .arrow{color:var(--gold);font-size:1.6rem}
+
+/* FEATURED BUILDS */
+.card{background:var(--card);border:1px solid #1e2a3c;border-radius:16px;padding:16px;color:#dbe7ff}
+.project-grid{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.carousel{position:relative;border-top-left-radius:12px;border-top-right-radius:12px;overflow:hidden}
+.carousel-track{display:flex;transition:transform .5s ease}
+.carousel img{width:100%;height:320px;object-fit:cover;flex:0 0 100%}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:999px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.carousel-btn:hover{background:rgba(0,0,0,.6)}
+.carousel-btn.prev{left:10px}.carousel-btn.next{right:10px}
+.carousel-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer}
+.carousel-dot.active{background:#fff}
+@media (max-width:1000px){.project-grid{grid-template-columns:1fr}}
+
+/* PRICING (light) */
+.section.pricing-wrap{background:linear-gradient(180deg,#f8f8f8,#e9e9e9);color:#111}
+.section.pricing-wrap .section-title{color:#111}
+.section.pricing-wrap .sub{color:#444}
+.pricing{display:grid;gap:22px;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:18px}
+.tier{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.05);display:flex;flex-direction:column;min-height:520px;transition:.2s ease box-shadow,.2s ease transform,.2s ease border}
+.tier:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.10);border-color:rgba(212,175,55,.65)}
+.tier h3{margin:0 0 8px;color:#111;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
+.tier .price{font-size:2.2rem;font-weight:900;color:#C59D23;margin:.15rem 0 .25rem}
+.tier .small{font-size:.9rem;color:#666}
+.tier p.sub{color:#444}
+.tier hr{border:none;border-top:1px solid rgba(0,0,0,.08);margin:14px 0}
+.tier ul{margin:0;padding-left:18px}.tier ul li{margin:6px 0;color:#444}
+.cta-col{margin-top:auto;display:flex;flex-direction:column;gap:12px}
+.btn.gold-flat{background:var(--gold);color:#111;border:none;box-shadow:0 8px 18px rgba(212,175,55,.25);font-weight:800}
+.btn.gold-flat:hover{box-shadow:0 14px 30px rgba(212,175,55,.38);transform:translateY(-1px)}
+.ribbon{position:relative}
+.ribbon:before{content:'Most Popular';position:absolute;top:14px;right:-10px;background:var(--gold);color:#111;font-weight:800;font-size:.7rem;padding:.35rem .55rem;border-radius:6px;box-shadow:0 6px 16px rgba(212,175,55,.35)}
+@media (max-width:1000px){.pricing{grid-template-columns:1fr}.tier{min-height:unset}}
+
+/* CTA Banner */
+#cta-banner .container{ text-align:center;padding:44px;border-radius:16px;
+  background:radial-gradient(900px 380px at 50% -60%, rgba(212,175,55,.24), rgba(8,8,8,1)); 
+  border:1px solid rgba(212,175,55,.35) }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="gold-lines"></div>
+  <div class="container">
+    <div class="hero-top-titles" style="text-align:center;margin-bottom:6px">
+      <div style="font-size:.85rem; letter-spacing:.18em; text-transform:uppercase; color:#D4AF37; opacity:.95;">Build for Freedom</div>
+      <div style="font-size:.9rem; color:#d9c790; opacity:.85; font-style:italic; margin-top:2px;">The Freedom Blueprint</div>
+    </div>
+    <span class="badge">10M+ TikTok Views • Real Assets • Real Results</span>
+    <h1><span>Money Making</span> Is a Discipline.</h1>
+    <p class="sub-gradient">Learn the habits that build assets—land, Airbnbs, simple cash flow.</p>
+    <div class="cta">
+      <a class="btn gold" href="#pricing">Start Building Income</a>
+      <a class="btn secondary" href="#projects">See the real projects</a>
+    </div>
+    <div class="pills">
+      <span class="pill">Weekly Challenges</span>
+      <span class="pill">Live One on One</span>
+      <span class="pill">Private Discord</span>
+      <span class="pill">Invest in Yourself</span>
+    </div>
+  </div>
+</header>
+
+<section id="how-you-build" class="section">
+  <div class="container">
+    <h2 class="section-title" style="color:#D4AF37;margin-bottom:20px;">How You’ll Build Freedom</h2>
+    <div class="roadmap">
+      <div class="step"><h3>Mindset & Change</h3><p>Think like an owner. Build discipline. Take action.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><h3>Live Minimally & Invest Right</h3><p>Cut the noise. Put cash into assets that grow.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><h3>Find & Make Deals</h3><p>Land, Airbnbs, and simple cash‑flow plays.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><h3>Build Your Freedom</h3><p>Execute your first income stream with support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="section-title">Featured Builds: From Dirt to Bookings</h2>
+    <p class="sub">We documented the entire process on TikTok — these are real assets producing cash flow.</p>
+    <div class="project-grid">
+      <div class="card project">
+        <div id="carousel-bluebonnet" class="carousel">
+          <div class="carousel-track">
+            <img src="assets/images/IMG_3152.jpg" alt="Bluebonnet House exterior">
+            <img src="assets/images/IMG_3154.jpg" alt="Bluebonnet House kitchen and living area">
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous">‹</button>
+          <button class="carousel-btn next" aria-label="Next">›</button>
+          <div class="carousel-dots"><div class="carousel-dot"></div><div class="carousel-dot"></div></div>
+        </div>
+        <div class="info">
+          <h3>Bluebonnet Container House</h3>
+          <p class="caption sub">We lived in this one while building the next—stacking passive income and documenting the journey.</p>
+          <div class="cta" style="margin-top:8px">
+            <a class="btn" href="https://www.airbnb.com/l/DDuoeLn3" target="_blank" rel="noopener">View on Airbnb</a>
+            <a class="btn secondary" href="#pricing">Start your Blueprint</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project">
+        <div id="carousel-jalapeno" class="carousel">
+          <div class="carousel-track">
+            <img src="assets/images/IMG_3334.jpg" alt="Jalapeño House exterior daytime">
+            <img src="assets/images/IMG_3336.jpg" alt="Jalapeño House container back view">
+            <img src="assets/images/IMG_3337.jpg" alt="Jalapeño House interior kitchen and living area">
+          </div>
+          <button class="carousel-btn prev" aria-label="Previous">‹</button>
+          <button class="carousel-btn next" aria-label="Next">›</button>
+          <div class="carousel-dots"><div class="carousel-dot"></div><div class="carousel-dot"></div><div class="carousel-dot"></div></div>
+        </div>
+        <div class="info">
+          <h3>Jalapeño Container House</h3>
+          <p class="caption sub">Built from the ground up. Listed on Airbnb. Full build documented on TikTok.</p>
+          <div class="cta" style="margin-top:8px">
+            <a class="btn" href="https://www.airbnb.com/l/ElDOXiG1" target="_blank" rel="noopener">View on Airbnb</a>
+            <a class="btn secondary" href="#pricing">Learn how we did it</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="who" class="section">
+  <div class="container">
+    <h2 class="section-title">Who This Is For</h2>
+    <p class="sub">This is for people who aren’t afraid to work — the ones who would rather build something real than wait for someone else to hand them a paycheck.</p>
+    <p class="sub">It’s for those ready to <b>take responsibility</b> for their money, their time, and their future.</p>
+    <p class="sub">It’s for <b>risk-takers, builders, and doers</b> who may not have all the answers yet but are ready to learn how to <b>create financial freedom</b> through real assets — land, Airbnbs, and simple business plays that actually work.</p>
+  </div>
+</section>
+
+<section id="cta-banner" class="section" style="background:#000; padding:56px 0;">
+  <div class="container">
+    <h3 style="margin:0 0 8px;color:#fff;font-size:1.6rem;text-align:center">Join hundreds of builders choosing freedom today.</h3>
+    <div class="cta" style="justify-content:center">
+      <a class="btn gold" href="#pricing">Join Now</a>
+    </div>
+    <div style="margin-top:10px;color:#cfcfcf;text-align:center"><em>— Kurt Wilson, Founder of Build for Freedom</em></div>
+  </div>
+</section>
+
+<section id="pricing" class="section pricing-wrap">
+  <div class="container">
+    <div style="height:3px;width:72px;background:#D4AF37;border-radius:999px;margin:0 auto 10px"></div>
+    <h2 class="section-title" style="text-align:center">Choose Your Freedom Tier</h2>
+    <p class="sub" style="text-align:center">Three ways to start building your freedom — choose your level of commitment.</p>
+
+    <div class="pills" style="justify-content:center;margin-top:10px">
+      <span class="pill" style="border-color:#C59D23;color:#C59D23">Weekly Challenges</span>
+      <span class="pill" style="border-color:#C59D23;color:#C59D23">Live One on One</span>
+      <span class="pill" style="border-color:#C59D23;color:#C59D23">Private Discord</span>
+      <span class="pill" style="border-color:#C59D23;color:#C59D23">Invest in Yourself</span>
+    </div>
+
+    <div class="pricing">
+      <div class="card tier">
+        <h3>Grow</h3>
+        <div class="price">$20<span class="small">/month</span></div>
+        <p class="sub"><b>Accountability + Community</b> — Private Discord group with daily motivation, personal challenges, and mindset lessons. Connect with like‑minded builders.</p>
+        <hr>
+        <ul class="sub">
+          <li>Daily challenges + discipline prompts</li>
+          <li>Mindset + motivation from Kurt</li>
+          <li>Supportive network of builders</li>
+          <li>Wins & updates from the community</li>
+        </ul>
+        <div class="cta-col"><a class="btn gold-flat" href="#">Join Grow — $20/mo</a></div>
+      </div>
+
+      <div class="card tier ribbon">
+        <h3>Learn</h3>
+        <div class="price">$50<span class="small">/month</span></div>
+        <p class="sub"><b>Education + Guidance</b> — Everything in Grow, plus training to <b>find, fund, and structure</b> your first real asset — container Airbnbs, small land plays, or recurring income streams.</p>
+        <hr>
+        <ul class="sub">
+          <li>Asset selection & due diligence</li>
+          <li>Funding options & simple structures</li>
+          <li>Deal examples & breakdowns</li>
+          <li>Action plans to get your first win</li>
+        </ul>
+        <div class="cta-col"><a class="btn gold-flat" href="#">Join Learn — $50/mo</a></div>
+      </div>
+
+      <div class="card tier">
+        <h3>Build</h3>
+        <div class="price">$100<span class="small">/month</span></div>
+        <p class="sub"><b>1‑on‑1 Coaching + Mastermind</b> — Everything in Learn, plus <b>live one‑on‑one calls</b> with Kurt and a private mastermind of people actively building passive income.</p>
+        <hr>
+        <ul class="sub">
+          <li>Personalized Freedom Plan (PDF)</li>
+          <li>Weekly accountability check‑ins</li>
+          <li>Private mastermind chat</li>
+          <li>Limited spots for focused support</li>
+        </ul>
+        <div class="cta-col"><a class="btn gold-flat" href="#">Join Build — $100/mo</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container" style="display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))">
+    <div class="card">
+      <h2 class="section-title">About <span style="color:var(--gold)">Kurt Wilson</span></h2>
+      <p class="sub">I’m a former Texas Tech athlete turned builder and entrepreneur. I quit my 9–5, went from nothing to figuring it out day by day—learning how to make it happen by working.</p>
+      <p class="sub">I built my freedom with dirt, steel, and discipline — starting with container homes and land. Now I’m handing you the same blueprint that helped me turn struggle into opportunity.</p>
+      <ul class="sub">
+        <li><b>4 Container Airbnbs Operating</b> — plus a fifth built and sold.</li>
+        <li><b>Multiple Land Deals Closed</b> — I know how to find, develop, and finish real projects.</li>
+        <li><b>Real Business, Real Results</b> — assets that create freedom and stability.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2 class="section-title">My Promise</h2>
+      <p class="sub">I will do everything in my power to help you become a better version of yourself — financially, mentally, and physically.</p>
+      <p class="sub">Escaping the 9–5 won’t be easy. It takes time, consistency, and discipline — but if you stay committed, we can build your freedom together.</p>
+      <div class="cta" style="margin-top:10px">
+        <a class="btn gold" href="#pricing">Join for Freedom</a>
+        <a class="btn secondary" href="#projects">See Builds</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function initCarousel(id){
+  const root=document.getElementById(id);
+  if(!root) return;
+  const track=root.querySelector('.carousel-track');
+  const slides=track.children;
+  let index=0;
+  const dots=[...root.querySelectorAll('.carousel-dot')];
+  function go(i){
+    index=(i+slides.length)%slides.length;
+    track.style.transform='translateX(' + (-index*100) + '%)';
+    dots.forEach((d,di)=>d.classList.toggle('active', di===index));
+  }
+  const prev=root.querySelector('.prev'); const next=root.querySelector('.next');
+  prev&&prev.addEventListener('click',()=>go(index-1));
+  next&&next.addEventListener('click',()=>go(index+1));
+  dots.forEach((d,di)=>d.addEventListener('click',()=>go(di)));
+  setInterval(()=>go(index+1), 5000);
+  go(0);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  ['carousel-bluebonnet','carousel-jalapeno'].forEach(initCarousel);
+});
+</script>
+
+</body>
+</html>
