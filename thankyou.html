@@ -4,57 +4,101 @@
   <meta charset="utf-8"/>
   <title>Thank You — Build For Freedom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
   <style>
+    :root {
+      --gold: #D4AF37;
+      --bg: #000;
+      --card: #0f0f0f;
+      --text: #f6f6f6;
+    }
+
     body{
       margin:0;
-      font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:#000;
-      color:#f6f6f6;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       display:flex;
       align-items:center;
       justify-content:center;
       min-height:100vh;
       padding:20px;
+      position:relative;
+      overflow:hidden;
     }
+
+    /* GOLD BACKGROUND ANIMATION (matches your hero section) */
+    body::before{
+      content:"";
+      position:absolute;
+      inset:-20% -10%;
+      background:
+        radial-gradient(600px 300px at 50% 20%, rgba(212,175,55,.22), transparent 60%),
+        radial-gradient(800px 400px at 10% -10%, rgba(212,175,55,.12), transparent 70%),
+        radial-gradient(900px 450px at 90% 0%, rgba(212,175,55,.12), transparent 70%),
+        conic-gradient(from 0deg at 50% 50%, rgba(212,175,55,.12), rgba(212,175,55,.04), rgba(212,175,55,.12));
+      filter: blur(24px) saturate(140%);
+      animation: goldFlow 14s linear infinite;
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    @keyframes goldFlow {
+      0% { transform:rotate(0deg) scale(1); opacity:.85; }
+      50% { transform:rotate(180deg) scale(1.08); opacity:.95; }
+      100% { transform:rotate(360deg) scale(1); opacity:.85; }
+    }
+
     .card{
       max-width:600px;
       width:100%;
-      padding:32px;
-      border-radius:16px;
-      background:#101010;
-      border:1px solid rgba(212,175,55,.4);
+      padding:38px;
+      border-radius:20px;
+      background:var(--card);
+      border:1px solid rgba(212,175,55,.45);
       text-align:center;
-      box-shadow:0 0 40px rgba(212,175,55,.25);
+      position:relative;
+      z-index:2;
+      box-shadow:0 0 45px rgba(212,175,55,.25);
     }
+
     h1{
       margin-top:0;
-      font-size:2.2rem;
-      color:#D4AF37;
-      font-weight:800;
+      font-size:2.4rem;
+      color:var(--gold);
+      font-weight:900;
+      letter-spacing:.5px;
     }
+
     p{
       color:#d0d0d0;
-      line-height:1.6;
+      line-height:1.65;
       font-size:1.05rem;
+      margin-top:14px;
     }
+
     a.btn{
       display:inline-block;
-      margin-top:20px;
+      margin-top:24px;
       padding:14px 22px;
       border-radius:999px;
-      background:#D4AF37;
+      background:var(--gold);
       color:#111;
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       font-size:1.05rem;
       letter-spacing:.5px;
       transition:.2s ease;
+      box-shadow:0 0 18px rgba(212,175,55,.4);
     }
+
     a.btn:hover{
       transform:translateY(-2px);
-      box-shadow:0 0 20px rgba(212,175,55,.5);
+      box-shadow:0 0 26px rgba(212,175,55,.55);
+      background:#e8c556;
     }
   </style>
+
 </head>
 <body>
 
@@ -62,24 +106,24 @@
     <h1>Welcome to Build For Freedom</h1>
 
     <p>
-      Thank you for joining. You’ve just taken a real step toward getting out
-      of the 9–5 and building real assets — land, Airbnbs, and cash flow.
+      You’re officially in. You just made a real commitment to yourself — to get out
+      of the 9–5 cycle and start building something that creates freedom for you
+      and your family.
     </p>
 
     <p>
-      Click below to join the private Discord community. This is where I’ll post
-      challenges, wins, deal breakdowns, and mindset lessons — plus where you’ll
-      connect with like-minded builders.
+      This community is where the real work happens: challenges, wins, deal breakdowns,
+      mindset shifts, and people all pushing toward the same goal — wealth & discipline.
     </p>
 
-    <!-- 🔗 REPLACE THIS LINK WITH YOUR DISCORD INVITE LINK -->
-    <a class="btn" href=https://discord.gg/mgqnsjbdQH target="_blank" rel="noopener">
-      Join the Build For Freedom Discord
+    <!-- 🔗 YOUR DISCORD INVITE -->
+    <a class="btn" href="https://discord.gg/mgqnsjbdQH" target="_blank" rel="noopener">
+      Join the Private Discord
     </a>
 
-    <p style="margin-top:26px;font-size:.95rem;opacity:.8">
-      After joining, head to <b>#welcome-start-here</b> and introduce yourself —
-      who you are, what you're working on, and what freedom means to you.
+    <p style="margin-top:28px;font-size:.95rem;opacity:.85">
+      After joining, go to <b>#welcome-start-here</b> and introduce yourself — who you are,
+      what you're building, and what freedom means to you.
     </p>
   </div>
 
