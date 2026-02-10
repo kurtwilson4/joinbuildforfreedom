@@ -4,20 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Build For Freedom™ — Digital Products</title>
-  <meta name="description" content="Build For Freedom™ digital products: container home starter guide, land buying checklist, project budget tool, floorplan pack, and complete system." />
+  <meta name="description" content="Build For Freedom™ digital products: container home start guide, land buying checklist, project budget tool, floorplan pack, and complete system." />
 
   <style>
     :root{
       --bg:#0b0b0b;
       --panel:#111111;
+      --panel2:#0f0f0f;
       --text:#f2f2f2;
       --muted:#bdbdbd;
       --gold:#d4af37;
       --gold2:#b8902e;
       --border:rgba(212,175,55,.25);
+      --borderSoft:rgba(255,255,255,.08);
       --shadow: 0 14px 40px rgba(0,0,0,.35);
       --radius:18px;
-      --max:1100px;
+      --max:1120px;
     }
     *{box-sizing:border-box}
     body{
@@ -31,6 +33,8 @@
     }
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Top bar */
     .topbar{
       position:sticky; top:0; z-index:10;
       backdrop-filter: blur(10px);
@@ -40,6 +44,7 @@
     .topbar-inner{
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0;
+      gap:12px;
     }
     .brand{display:flex; flex-direction:column; gap:2px; line-height:1.1;}
     .brand b{letter-spacing:.6px}
@@ -51,83 +56,167 @@
       border-radius:999px;
       color:var(--gold);
       background: rgba(212,175,55,.06);
-      font-weight:600;
+      font-weight:700;
       font-size:14px;
+      white-space:nowrap;
     }
     .pill:hover{border-color:rgba(212,175,55,.55)}
-    header.hero{padding:54px 0 26px;}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:22px;
-      align-items:start;
+
+    /* Hero */
+    header.hero{padding:42px 0 18px;}
+    .hero h1{
+      margin:0 0 10px;
+      font-size:40px;
+      letter-spacing:-.6px;
+      text-align:center;
     }
-    .hero h1{margin:0 0 10px; font-size:40px; letter-spacing:-.5px;}
     .hero h1 span{color:var(--gold)}
     .hero p{
-      margin:0 0 18px;
+      margin:0 auto;
+      max-width:78ch;
+      text-align:center;
       color:#e8e8e8;
-      font-size:17px;
-      line-height:1.55;
-      max-width:60ch;
+      font-size:16.5px;
+      line-height:1.6;
     }
-    .hero .bullets{
-      display:grid;
-      gap:10px;
-      padding:0;
-      margin:0;
-      list-style:none;
-      color:#eaeaea;
+
+    /* Section title like your old page */
+    .tier-section{
+      padding:22px 0 58px;
     }
-    .hero .bullets li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px 12px;
+    .tier-head{
+      margin-top:18px;
+      background: rgba(255,255,255,.02);
       border:1px solid rgba(255,255,255,.06);
-      background: rgba(255,255,255,.03);
-      border-radius:14px;
+      border-radius:22px;
+      padding:26px 18px 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
     }
-    .check{
-      width:22px; height:22px; flex:0 0 22px;
-      display:grid; place-items:center;
-      border-radius:6px;
-      background: rgba(212,175,55,.12);
-      border:1px solid rgba(212,175,55,.35);
-      color:var(--gold);
-      font-weight:900;
-      line-height:1;
-      margin-top:1px;
-    }
-    .hero-card{
-      border:1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
-    }
-    .hero-card .tag{
-      display:inline-flex;
-      padding:7px 10px;
+    .tier-head .mini-line{
+      width:64px;
+      height:3px;
+      background: var(--gold);
       border-radius:999px;
-      background: rgba(212,175,55,.12);
-      border:1px solid rgba(212,175,55,.35);
-      color:var(--gold);
-      font-weight:700;
-      font-size:12px;
-      letter-spacing:.3px;
+      margin:0 auto 10px;
+      opacity:.95;
+    }
+    .tier-head h2{
+      margin:0 0 8px;
+      font-size:30px;
+      text-align:center;
+      letter-spacing:-.3px;
+    }
+    .tier-head .sub{
+      margin:0 auto 16px;
+      max-width:82ch;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .pill-row{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      padding:4px 0 0;
+    }
+
+    /* Cards grid */
+    .cards{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:16px;
+    }
+    .card{
+      grid-column: span 4;
+      border:1px solid var(--borderSoft);
+      background: rgba(255,255,255,.03);
+      border-radius:20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      min-height: 430px;
+    }
+    .card.featured{
+      border-color: rgba(212,175,55,.45);
+      background: linear-gradient(180deg, rgba(212,175,55,.10), rgba(255,255,255,.02));
+      transform: translateY(-2px);
+    }
+    .label-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
       margin-bottom:10px;
     }
-    .hero-card h3{margin:0 0 8px; font-size:18px}
-    .hero-card p{margin:0 0 14px; color:var(--muted); line-height:1.5; font-size:14px}
-    .cta-row{display:flex; gap:10px; flex-wrap:wrap}
+    .badge{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(212,175,55,.45);
+      background: rgba(212,175,55,.10);
+      color:var(--gold);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.2px;
+      text-transform:uppercase;
+    }
+    .most-popular{
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(212,175,55,.95);
+      color:#111;
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.2px;
+    }
+    .price{
+      font-size:38px;
+      font-weight:1000;
+      letter-spacing:-.6px;
+      color: var(--gold);
+      margin:0 0 2px;
+    }
+    .per{
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+    }
+    .card h3{
+      margin:10px 0 8px;
+      font-size:16.5px;
+      letter-spacing:-.2px;
+    }
+    .card p{
+      margin:0 0 14px;
+      color:#eaeaea;
+      line-height:1.6;
+      font-size:14.5px;
+    }
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.07);
+      margin:12px 0;
+    }
+    ul{
+      margin:0;
+      padding-left:18px;
+      color:#eaeaea;
+      line-height:1.65;
+      font-size:14px;
+    }
+    .spacer{flex:1}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px;
+      padding:13px 14px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
-      font-weight:800;
+      font-weight:950;
       font-size:14px;
-      min-width:160px;
+      width:100%;
+      margin-top:14px;
     }
     .btn:hover{border-color:rgba(255,255,255,.22)}
     .btn.gold{
@@ -135,73 +224,74 @@
       border:1px solid rgba(212,175,55,.65);
       color:#111;
     }
-    .btn.gold:hover{filter:brightness(1.03)}
-    main{padding:20px 0 64px}
-    .section{margin-top:26px; border-top:1px solid rgba(255,255,255,.06); padding-top:26px;}
-    .section h2{margin:0 0 8px; font-size:28px; letter-spacing:-.2px;}
-    .section h2 span{color:var(--gold)}
-    .section .sub{margin:0 0 18px; color:var(--muted); line-height:1.6; max-width:80ch;}
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px;}
-    .card{
-      grid-column: span 6;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
-      border-radius:var(--radius);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+
+    /* Bundle panel */
+    .bundle{
+      margin-top:18px;
+      border:1px solid rgba(212,175,55,.35);
+      background: linear-gradient(180deg, rgba(212,175,55,.10), rgba(255,255,255,.02));
+      border-radius:22px;
       padding:18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:14px;
+      align-items:center;
+    }
+    .bundle h3{margin:0 0 6px; font-size:18px}
+    .bundle p{margin:0; color:#eaeaea; line-height:1.6}
+    .bundle .right{
       display:flex;
       flex-direction:column;
-      min-height: 260px;
+      gap:10px;
+      align-items:stretch;
     }
-    .card.featured{
-      border-color: rgba(212,175,55,.45);
-      background: linear-gradient(180deg, rgba(212,175,55,.10), rgba(255,255,255,.02));
-    }
-    .card .kicker{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;}
-    .badge{
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(212,175,55,.45);
-      background: rgba(212,175,55,.10);
+    .bundle .bigprice{
+      font-size:34px;
+      font-weight:1000;
       color:var(--gold);
-      font-weight:800;
-      font-size:12px;
-      letter-spacing:.2px;
+      margin:0;
+      text-align:right;
     }
-    .price{color:#eaeaea; font-weight:900; letter-spacing:.2px; font-size:14px;}
-    .card h3{margin:0 0 8px; font-size:18px}
-    .card p{margin:0 0 12px; color:var(--muted); line-height:1.55}
-    .list{margin:0 0 16px; padding-left:18px; color:#eaeaea; line-height:1.6;}
-    .card .spacer{flex:1}
-    .card .actions{display:flex; gap:10px; flex-wrap:wrap}
-    .note{
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px dashed rgba(212,175,55,.35);
-      background: rgba(212,175,55,.06);
-      color:#eaeaea;
-      line-height:1.6;
+
+    /* FAQ */
+    .faq{
+      margin-top:18px;
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.02);
+      border-radius:22px;
+      padding:18px;
     }
+    .faq h3{margin:0 0 8px}
+    .faq p{margin:0 0 14px; color:var(--muted); line-height:1.6}
+    .faq p:last-child{margin-bottom:0}
+
     footer{
-      margin-top:40px;
-      padding:28px 0;
+      margin-top:28px;
+      padding:22px 0;
       border-top:1px solid rgba(255,255,255,.06);
       color:var(--muted);
       font-size:13px;
     }
-    footer .foot{display:flex; gap:14px; justify-content:space-between; flex-wrap:wrap;}
+    footer .foot{
+      display:flex;
+      gap:12px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      align-items:center;
+    }
 
-    @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr}
-      .card{grid-column: span 12}
+    /* Responsive */
+    @media (max-width: 980px){
+      .card{grid-column: span 12; min-height:auto;}
+      .bundle{grid-template-columns: 1fr;}
+      .bundle .bigprice{text-align:left;}
       .hero h1{font-size:34px}
     }
   </style>
 </head>
 
 <body>
-  <!-- Top bar -->
   <div class="topbar">
     <div class="wrap">
       <div class="topbar-inner">
@@ -210,7 +300,7 @@
           <small>By Kurt Wilson</small>
         </div>
         <nav class="nav">
-          <a class="pill" href="#products">Digital Products</a>
+          <a class="pill" href="#products">Products</a>
           <a class="pill" href="#bundle">Complete System</a>
           <a class="pill" href="#faq">FAQ</a>
           <a class="pill" href="https://buy.stripe.com/test_6oUaEWble9o3c43daF0oM07" target="_blank" rel="noopener">Shop</a>
@@ -219,181 +309,176 @@
     </div>
   </div>
 
-  <!-- Hero -->
   <header class="hero">
     <div class="wrap">
-      <div class="hero-grid">
-        <div>
-          <h1>Build a container home with <span>clarity</span>, not guesswork.</h1>
-          <p>
-            Build For Freedom™ is a collection of step-by-step guides, tools, and templates created from real container home builds.
-            These digital products are designed to save you time, protect your budget, and help you finish your build with confidence.
-          </p>
-
-          <ul class="bullets">
-            <li><span class="check">✓</span><div><b>No subscriptions.</b> One-time purchases you can use immediately.</div></li>
-            <li><span class="check">✓</span><div><b>Builder-focused.</b> Clear steps, realistic costs, and real-world decisions.</div></li>
-            <li><span class="check">✓</span><div><b>Made to execute.</b> Templates + checklists you can hand to contractors.</div></li>
-          </ul>
-        </div>
-
-        <aside class="hero-card">
-          <div class="tag">Instant Download • Digital Files</div>
-          <h3>Start with the right tools for your goal</h3>
-          <p>
-            Whether you’re building a personal home, an Airbnb, or a rental, these tools give you a clean roadmap and the systems to stay on track.
-          </p>
-          <div class="cta-row">
-            <a class="btn gold" href="#products">View Products</a>
-            <a class="btn" href="https://buy.stripe.com/test_6oUaEWble9o3c43daF0oM07" target="_blank" rel="noopener">Get Complete System</a>
-          </div>
-          <div class="note">
-            <b>Pro tip:</b> Most people waste money in 2 places — buying the wrong land and hiring contractors without a system.
-            Start with the checklist + budget tool.
-          </div>
-        </aside>
-      </div>
+      <h1>Build a container home with <span>clarity</span>, not guesswork.</h1>
+      <p>
+        No subscriptions. Just premium digital tools that help you plan, budget, and build your container home the right way —
+        built from real projects and real-world decisions.
+      </p>
     </div>
   </header>
 
-  <main>
+  <main class="tier-section">
     <div class="wrap">
 
-      <!-- Products -->
-      <section id="products" class="section">
-        <h2><span>Build For Freedom™</span> Digital Products</h2>
+      <!-- Products (tier-style layout) -->
+      <section id="products" class="tier-head">
+        <div class="mini-line"></div>
+        <h2>Choose Your Build For Freedom Tools</h2>
         <p class="sub">
-          Proven guides, templates, and floorplans built from real projects — designed to help you plan smarter, avoid costly mistakes,
-          and move from idea to finished build.
+          Pick the tools you need — or grab the Complete System if you want everything in one place.
+          These are instant-download digital products created to help you execute, not just dream.
         </p>
 
-        <div class="grid">
-          <!-- Product 1 -->
-          <article class="card featured">
-            <div class="kicker">
-              <span class="badge">Flagship Guide</span>
-              <span class="price">$20</span>
+        <!-- Top pills (like the old layout) -->
+        <div class="pill-row">
+          <a class="pill" href="#start">Start Here</a>
+          <a class="pill" href="#land">Land</a>
+          <a class="pill" href="#budget">Budget</a>
+          <a class="pill" href="#floorplans">Floorplans</a>
+          <a class="pill" href="#bundle">Bundle</a>
+        </div>
+
+        <div class="cards">
+
+          <!-- Card 1 -->
+          <article class="card featured" id="start">
+            <div class="label-row">
+              <span class="badge">START HERE</span>
+              <span class="most-popular">Most Popular</span>
             </div>
+
+            <div class="price">$20 <span class="per">one-time</span></div>
+
             <h3>Container Home Start Guide</h3>
-            <p>Your complete roadmap from idea to finished build — written for beginners and built for real-world execution.</p>
-            <ul class="list">
+            <p>
+              Your complete roadmap from idea to finished build. Built for beginners, written for real execution.
+            </p>
+
+            <div class="divider"></div>
+            <ul>
               <li>Step-by-step build process (start → finish)</li>
-              <li>Budgeting + realistic cost ranges</li>
-              <li>Land selection + utilities planning</li>
-              <li>Permits, inspections, and common mistakes</li>
+              <li>Budget planning + realistic cost ranges</li>
+              <li>Land + utilities planning (what to verify)</li>
+              <li>Permits, inspections, and mistakes to avoid</li>
             </ul>
+
             <div class="spacer"></div>
-            <div class="actions">
-              <a class="btn gold" href="https://buy.stripe.com/test_bJe6oG9d643J3xx7Ql0oM03" target="_blank" rel="noopener">Buy — $20</a>
-            </div>
+            <a class="btn gold" href="https://buy.stripe.com/test_bJe6oG9d643J3xx7Ql0oM03" target="_blank" rel="noopener">
+              Buy Start Guide — $20
+            </a>
           </article>
 
-          <!-- Product 2 -->
-          <article class="card">
-            <div class="kicker">
-              <span class="badge">Best First Purchase</span>
-              <span class="price">$10</span>
+          <!-- Card 2 -->
+          <article class="card" id="land">
+            <div class="label-row">
+              <span class="badge">LAND</span>
+              <span class="badge" style="border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#eaeaea;">Avoid Bad Deals</span>
             </div>
+
+            <div class="price">$10 <span class="per">one-time</span></div>
+
             <h3>Land Buying Checklist</h3>
-            <p>A professional checklist to avoid buying land that kills your project (zoning, access, soil, utilities, floodplain, HOAs).</p>
-            <ul class="list">
-              <li>County rules + zoning questions to ask</li>
-              <li>Access, easements, setbacks, road needs</li>
+            <p>
+              A professional checklist to avoid buying land that kills your project (zoning, access, soil, utilities, floodplain, HOAs).
+            </p>
+
+            <div class="divider"></div>
+            <ul>
+              <li>County questions to ask before you buy</li>
+              <li>Access, easements, setbacks, road requirements</li>
               <li>Soil/drainage + floodplain red flags</li>
-              <li>Utility checks (power, water, septic, internet)</li>
+              <li>Power, water, septic, internet verification</li>
             </ul>
+
             <div class="spacer"></div>
-            <div class="actions">
-              <a class="btn gold" href="https://buy.stripe.com/test_dRm00i74YgQvaZZc6B0oM04" target="_blank" rel="noopener">Buy — $10</a>
-            </div>
+            <a class="btn gold" href="https://buy.stripe.com/test_dRm00i74YgQvaZZc6B0oM04" target="_blank" rel="noopener">
+              Buy Land Checklist — $10
+            </a>
           </article>
 
-          <!-- Product 3 -->
-          <article class="card">
-            <div class="kicker">
-              <span class="badge">Excel + PDF Tool</span>
-              <span class="price">$15</span>
+          <!-- Card 3 -->
+          <article class="card" id="budget">
+            <div class="label-row">
+              <span class="badge">BUDGET</span>
+              <span class="badge" style="border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#eaeaea;">Excel System</span>
             </div>
+
+            <div class="price">$15 <span class="per">one-time</span></div>
+
             <h3>Project Budget Tool</h3>
-            <p>Track every dollar with confidence: estimated vs actual, contractor quotes, timeline planning, and weekly tracking.</p>
-            <ul class="list">
-              <li>Master Budget (variance + contingency)</li>
-              <li>Contractor Tracker (quotes + payments)</li>
+            <p>
+              Track every dollar: estimated vs actual, contractor quotes, project timeline, weekly spend, and a final summary.
+            </p>
+
+            <div class="divider"></div>
+            <ul>
+              <li>Master budget with variance + contingency</li>
+              <li>Contractor tracker (quotes + payments)</li>
               <li>Timeline tracker (planned vs actual)</li>
-              <li>Weekly tracker + final summary</li>
+              <li>Weekly tracker + final recap sheet</li>
             </ul>
+
             <div class="spacer"></div>
-            <div class="actions">
-              <a class="btn gold" href="https://buy.stripe.com/test_8x214mdtm9o31ppb2x0oM05" target="_blank" rel="noopener">Buy — $15</a>
-            </div>
+            <a class="btn gold" href="https://buy.stripe.com/test_8x214mdtm9o31ppb2x0oM05" target="_blank" rel="noopener">
+              Buy Budget Tool — $15
+            </a>
           </article>
 
-          <!-- Product 4 -->
-          <article class="card featured">
-            <div class="kicker">
-              <span class="badge">Blueprint Pack</span>
-              <span class="price">$25</span>
-            </div>
+        </div>
+
+        <!-- Floorplans (wide highlight like old sections) -->
+        <div class="bundle" id="floorplans" style="margin-top:16px;">
+          <div>
             <h3>Floorplan Pack (Blueprint + Furnished Layouts)</h3>
-            <p>Proven layouts for living and rentals — blueprint-style pages, furnished versions, and a cost-match guide.</p>
-            <ul class="list">
-              <li>Multiple layouts (personal + Airbnb options)</li>
-              <li>Blueprint-style pages with door swings + window sizes</li>
-              <li>Furnished layouts to visualize the space</li>
-              <li>Cost-match guide (cheapest, fastest, best ROI)</li>
-            </ul>
-            <div class="spacer"></div>
-            <div class="actions">
-              <a class="btn gold" href="https://buy.stripe.com/test_eVq5kCbleeInfgfgmR0oM06" target="_blank" rel="noopener">Buy — $25</a>
-            </div>
-          </article>
+            <p>
+              Proven layouts for living and rentals — blueprint-style pages with door swings + window sizes, furnished layouts for visualization,
+              and a cost-match guide (cheapest, fastest, best ROI).
+            </p>
+          </div>
+          <div class="right">
+            <p class="bigprice">$25</p>
+            <a class="btn gold" href="https://buy.stripe.com/test_eVq5kCbleeInfgfgmR0oM06" target="_blank" rel="noopener">
+              Buy Floorplan Pack — $25
+            </a>
+          </div>
         </div>
-      </section>
 
-      <!-- Bundle / Complete System -->
-      <section id="bundle" class="section">
-        <h2><span>Build For Freedom™</span> Complete System</h2>
-        <p class="sub">
-          Get the full system in one purchase. If you’re serious about building a container home or rental, this is the complete toolkit:
-          planning, land selection, budgeting, and execution — all in one place.
-        </p>
-
-        <div class="note">
-          <b>Complete System — $60</b><br/>
-          Includes: Container Home Start Guide • Land Buying Checklist • Project Budget Tool • Floorplan Pack<br/><br/>
-          <a class="btn gold" href="https://buy.stripe.com/test_6oUaEWble9o3c43daF0oM07" target="_blank" rel="noopener">Get Complete System — $60</a>
+        <!-- Complete System (wide highlight) -->
+        <div class="bundle" id="bundle">
+          <div>
+            <h3>Build For Freedom™ Complete System</h3>
+            <p>
+              Everything in one purchase: Container Home Start Guide, Land Buying Checklist, Project Budget Tool, and the Floorplan Pack.
+              Best value if you’re serious about executing your first build the right way.
+            </p>
+          </div>
+          <div class="right">
+            <p class="bigprice">$60</p>
+            <a class="btn gold" href="https://buy.stripe.com/test_6oUaEWble9o3c43daF0oM07" target="_blank" rel="noopener">
+              Get Complete System — $60
+            </a>
+          </div>
         </div>
-      </section>
 
-      <!-- FAQ -->
-      <section id="faq" class="section">
-        <h2><span>FAQ</span></h2>
-        <p class="sub">Quick answers for buyers coming from TikTok.</p>
-
-        <div class="grid">
-          <article class="card" style="grid-column: span 12; min-height:auto;">
-            <h3>How do I receive the files?</h3>
-            <p>Instant access after checkout. You’ll receive a confirmation and can download your files right away.</p>
-
-            <h3>Are these good for Airbnb builds?</h3>
-            <p>Yes — these products are written with investment builds in mind (layout decisions, durability, ROI thinking, and common mistakes).</p>
-
-            <h3>Do I need experience to use these?</h3>
-            <p>No. Everything is beginner-friendly and designed to help you avoid expensive learning curves.</p>
-
-            <h3>Can I use these tools for multiple builds?</h3>
-            <p>Yes — you can reuse the templates, checklists, and budget tool as many times as you want for your own projects.</p>
-          </article>
+        <!-- FAQ -->
+        <div class="faq" id="faq">
+          <h3>FAQ</h3>
+          <p><b>How do I receive the files?</b><br/>Instant access after checkout. You’ll be able to download your files right away.</p>
+          <p><b>Are these good for Airbnb builds?</b><br/>Yes — the products include investment-focused decisions (layout, durability, ROI, and common mistakes).</p>
+          <p><b>Do I need experience to use these?</b><br/>No. These tools are beginner-friendly and built to help you execute step-by-step.</p>
+          <p><b>Can I reuse them for multiple builds?</b><br/>Yes — you can reuse your templates and tools for your own projects anytime.</p>
         </div>
+
       </section>
 
       <footer>
-        <div class="foot wrap">
+        <div class="foot">
           <div>© <span id="year"></span> Build For Freedom™ • By Kurt Wilson</div>
-          <div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="pill" href="#products">Products</a>
             <a class="pill" href="#bundle">Complete System</a>
-            <!-- Optional: replace with your TikTok handle -->
             <a class="pill" href="https://tiktok.com/@YOURHANDLE" target="_blank" rel="noopener">TikTok</a>
           </div>
         </div>
