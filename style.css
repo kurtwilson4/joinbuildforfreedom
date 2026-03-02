@@ -1,0 +1,130 @@
+/* AIRBNBS SECTION (Option A) */
+.airbnbs {
+  padding: 56px 16px;
+}
+
+.airbnbs__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.airbnbs__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.airbnbs__title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.airbnbs__subtitle {
+  margin: 10px 0 0 0;
+  max-width: 720px;
+  opacity: 0.8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.airbnbs__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 700px) {
+  .airbnbs__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .airbnbs__grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.airbnb-card {
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.airbnb-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+.airbnb-card__image {
+  display: block;
+  text-decoration: none;
+}
+
+.airbnb-card__placeholder {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: linear-gradient(135deg, #111 0%, #333 100%);
+  color: #f7f7f7;
+}
+
+.airbnb-card__image img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.airbnb-card__body {
+  padding: 14px 14px 16px 14px;
+}
+
+.airbnb-card__name {
+  margin: 0;
+  font-size: 16px;
+}
+
+.airbnb-card__desc {
+  margin: 8px 0 12px 0;
+  font-size: 13px;
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+.airbnb-card__actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Button styles (scoped) */
+.airbnbs .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+.airbnbs .btn--primary {
+  background: #fbbf24; /* gold-ish */
+  color: #111;
+  border-color: rgba(0,0,0,0.08);
+}
+
+.airbnbs .btn--primary:hover {
+  filter: brightness(0.97);
+}
+/* /AIRBNBS SECTION */
