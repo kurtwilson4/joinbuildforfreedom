@@ -1,6 +1,6 @@
-/* AIRBNBS SECTION (Option A) */
+/* AIRBNBS SECTION (Clean + Smaller) */
 .airbnbs {
-  padding: 56px 16px;
+  padding: 40px 16px;
 }
 
 .airbnbs__inner {
@@ -9,61 +9,52 @@
 }
 
 .airbnbs__header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .airbnbs__title {
   margin: 0;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 1.2;
 }
 
 .airbnbs__subtitle {
-  margin: 10px 0 0 0;
+  margin: 8px 0 0 0;
   max-width: 720px;
-  opacity: 0.8;
-  font-size: 14px;
+  opacity: 0.85;
+  font-size: 13px;
   line-height: 1.5;
 }
 
 .airbnbs__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 14px;
 }
-.airbnb-card img {
-  width: 100%;
-  height: 220px;        /* controls image height */
-  object-fit: cover;    /* crops nicely instead of stretching */
-  border-radius: 12px;
-}
+
 @media (min-width: 700px) {
   .airbnbs__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
   .airbnbs__grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .airbnb-card {
-  border: 1px solid rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 16px;
   overflow: hidden;
-  background: #fff;
+  background: rgba(20,20,20,0.55);
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
 .airbnb-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
 }
 
 .airbnb-card__image {
@@ -71,62 +62,51 @@
   text-decoration: none;
 }
 
-.airbnb-card__placeholder {
-  height: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  background: linear-gradient(135deg, #111 0%, #333 100%);
-  color: #f7f7f7;
-}
-
 .airbnb-card__image img {
   width: 100%;
-  height: 170px;
+  height: 160px;       /* smaller image */
   object-fit: cover;
   display: block;
 }
 
 .airbnb-card__body {
-  padding: 14px 14px 16px 14px;
+  padding: 12px;
 }
 
 .airbnb-card__name {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .airbnb-card__desc {
-  margin: 8px 0 12px 0;
-  font-size: 13px;
-  opacity: 0.8;
-  line-height: 1.4;
+  margin: 6px 0 10px 0;
+  font-size: 12.5px;
+  opacity: 0.85;
+  line-height: 1.35;
 }
 
 .airbnb-card__actions {
   display: flex;
-  gap: 10px;
 }
 
-/* Button styles (scoped) */
 .airbnbs .btn {
+  width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  padding: 10px 12px;
-  font-size: 13px;
+  padding: 9px 10px;
+  font-size: 12.5px;
   font-weight: 700;
   text-decoration: none;
-  border: 1px solid rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
 .airbnbs .btn--primary {
-  background: #fbbf24; /* gold-ish */
+  background: #fbbf24;
   color: #111;
-  border-color: rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.10);
 }
 
 .airbnbs .btn--primary:hover {
